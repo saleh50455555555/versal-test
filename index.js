@@ -43,10 +43,28 @@ app.get('/about', logger, (req, res) => {
     console.log('about');
     res.send('abouttt');
 })
+const data1 = {
+    placeId: 1,
+    name: "armman",
+    description: "otel",
+    location: "allepo",
+    averagerating: 5,
+
+}
+app.get('/api/1', logger, (req, res) => {
+    console.log('about');
+    res.json(data1);
+})
+
+
+
+
 
 app.listen(8080 || process.env.PORT, () => {
     console.log('server on 5000');
 
 })
+
+
 
 //ooD5k9EhTT6JWqYQ
