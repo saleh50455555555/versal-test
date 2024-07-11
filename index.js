@@ -44,7 +44,7 @@ app.get('/about', logger, (req, res) => {
     res.send('about');
 })
 
-app.listen(8080, () => {
+app.listen(8080 || process.env.PORT, () => {
     console.log('server on 5000');
 
 })
