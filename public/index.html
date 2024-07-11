@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>car site</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style1.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+
+        <a href="#" class="logo"> <span>max</span>wheels </a>
+
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#featured">vehicles</a>
+            <a href="#services">services</a>
+            <a href="#featured">featured</a>
+            <a href="#reviews">reviews</a>
+            <a href="#contact">contact</a>
+        </nav>
+
+        <div id="login-btn">
+            <button class="btn">login</button>
+            <i class="far fa-user"></i>
+        </div>
+        <form action="/api/users" method="POST" id="add_user">
+            <div class="new_user">
+                <div class="form-group">
+                    <label for="name" class="text-light">Name</label>
+                    <input type="hidden" name="id" value="">
+                    <input type="text" name="name" value="" placeholder="Mark Stoenis">
+                </div>
+                <div class="form-group">
+                    <label for="Email" class="text-light">car Name</label>
+                    <input type="text" name="email" value="" placeholder="BMW">
+                </div>
+                <div class="form-group">
+                    <label for="gender" class="text-light">Gender</label>
+                    <div class="radio inline">
+                        <input type="radio" id="radio-2" name="gender" value="Male">
+                        <label for="radio-2" class="radio-label">Male</label>
+                    </div>
+                    <div class="radio inline">
+                        <input type="radio" id="radio-3" name="gender" value="Female">
+                        <label for="radio-3" class="radio-label">Female</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender" class="text-light">Status</label>
+                    <div class="radio inline">
+                        <input type="radio" id="radio-4" name="status" value="Active">
+                        <label for="radio-4" class="radio-label">Active</label>
+                    </div>
+                    <div class="radio inline">
+                        <input type="radio" id="radio-5" name="status" value="Inactive">
+                        <label for="radio-5" class="radio-label">Inactive</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn text-dark update">Save</button>
+                </div>
+
+            </div>
+        </form>
+    </header>
+    <section class="footer" id="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>our branches</h3>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> aleppo </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> homs </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> lathekea</a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> hama</a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> dir-alzor</a>
+            </div>
+
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#"> <i class="fas fa-arrow-right"></i> home </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> vehicles </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> services </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> featured </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> reviews </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> contact </a>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"> <i class="fas fa-phone"></i> +963 9854 25 </a>
+                <a href="#"> <i class="fas fa-phone"></i> +963 852 741 </a>
+                <a href="#"> <i class="fas fa-envelope"></i> carsite@gmail.com </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> syria, aleppo - 400104 </a>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+                <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+                <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+                <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+                <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+            </div>
+
+        </div>
+
+        <div class="credit"> created by mr. web designer | all rights reserved </div>
+
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous"></script>
+    <script src="/js/index.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            // Optional parameters
+
+            loop: true,
+
+            // If we need pagination
+            pagination: {
+                el: '.swiper-pagination',
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+        });
+    </script>
+    <!-- /Header -->
