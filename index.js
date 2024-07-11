@@ -31,7 +31,7 @@ app.get('/api/v1/query', (req, res) => {
         sUsers = sUsers.filter((user) => {
             return user.firstName.startsWith(search.toUpperCase());
         })
-    }
+    }//oihohi
     res.status(200).json(sUsers);
     // res.json("hi there");
 })
