@@ -41,7 +41,7 @@ app.get('/', logger, (req, res) => {
 })
 app.get('/about', logger, (req, res) => {
     console.log('about');
-    res.send('about');
+    res.send('abouttt');
 })
 
 app.listen(8080 || process.env.PORT, () => {
