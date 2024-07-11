@@ -64,7 +64,8 @@ const data3 = {
     location: "allepo",
     averagerating: 5,
 
-}
+}//aa
+
 app.get('/api/1', logger, (req, res) => {
     console.log('about');
     res.json(data1);
