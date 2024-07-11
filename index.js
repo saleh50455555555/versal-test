@@ -49,6 +49,20 @@ const data1 = {
     description: "otel",
     location: "allepo",
     averagerating: 5,
+}
+const data2 = {
+    placeId: 2,
+    name: "tercwas",
+    description: "resturant",
+    location: "allepo",
+    averagerating: 5,
+}
+const data3 = {
+    placeId: 3,
+    name: "sheraton",
+    description: "otel",
+    location: "allepo",
+    averagerating: 5,
 
 }
 app.get('/api/1', logger, (req, res) => {
@@ -56,9 +70,16 @@ app.get('/api/1', logger, (req, res) => {
     res.json(data1);
 })
 
+app.get('/api/2', logger, (req, res) => {
+    console.log('about');
+    res.json(data2);
+})
 
+app.get('/api/3', logger, (req, res) => {
+    console.log('about');
+    res.json(data3);
 
-
+})
 
 app.listen(8080 || process.env.PORT, () => {
     console.log('server on 5000');
