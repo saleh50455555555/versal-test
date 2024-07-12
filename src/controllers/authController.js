@@ -7,7 +7,7 @@ exports.register = async (req, res) => {
     const { username, password, email } = req.body;
 
     try {
-        let user = await User.findOne({ username });
+        let user = await User.findOne({ email });
         if (user) {
             console.log('User already exists');
             return res.status(400).json({ message: 'User already exists' });
@@ -31,19 +31,19 @@ exports.register = async (req, res) => {
 
 // تسجيل الدخول
 exports.login = async (req, res) => {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
     try {
-        const user = await User.findOne({ username });
+        const user = await User.findOne({ email });
         if (!user) {
-            console.log('Invalid username or password');
-            return res.status(400).json({ message: 'Invalid username or password' });
+            console.log('Invalid email or password');
+            return res.status(400).json({ message: 'Invalid email or password' });
         }
 
         const isMatch = await bcrypt.compare(password, user.passwordHash);
         if (!isMatch) {
-            console.log('Invalid username or password');
-            return res.status(400).json({ message: 'Invalid username or password' });
+            console.log('Invalid email or password');
+            return res.status(400).json({ message: 'Invalid email or password' });
         }
 
         const token = jwt.sign({ userID: user.userID }, 'your_jwt_secret', { expiresIn: '1h' });
