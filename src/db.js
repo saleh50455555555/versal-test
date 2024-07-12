@@ -4,6 +4,7 @@ mongoose.connect('mongodb+srv://saleh:ooD5k9EhTT6JWqYQ@cluster0.otqqhpt.mongodb.
         console.log('connected to DB');
 
 
+
     })
     .catch(() => {
         console.log(' unable to  connected to DB');
