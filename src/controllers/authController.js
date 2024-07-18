@@ -1,6 +1,7 @@
 const User = require('../models/userModel');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { omit } = require('lodash');
 
 // تسجيل مستخدم جديد
 exports.register = async (req, res) => {
@@ -21,8 +22,12 @@ exports.register = async (req, res) => {
         });
 
         await user.save();
+
+        // إنشاء توكين JWT بعد التسجيل مباشرة
+        const token = jwt.sign({ userID: user.userID }, 'your_jwt_secret', { expiresIn: '1h' });
+
         console.log('User registered successfully');
-        res.status(201).json({ message: 'User registered successfully' });
+        res.status(201).json({ message: 'User registered successfully', token });
     } catch (error) {
         console.error('Error while registering user', error);
         res.status(500).json({ message: 'Server error', error });

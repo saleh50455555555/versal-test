@@ -2,6 +2,7 @@ const express = require('express');
 const db = require('./src/db');
 const app = express();
 const authRoutes = require('./src/routes/authRoutes');
+const Province = require('./src/models/provinceModel');
 
 app.use(express.json());
 const port = process.env.PORT || 5000;
@@ -16,6 +17,9 @@ const logger = (req, res, next) => {
 };
 
 app.use(logger);
+
+
+
 
 // إضافة مسارات المصادقة
 app.use('/api/auth', authRoutes);
