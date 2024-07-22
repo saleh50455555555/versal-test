@@ -4,7 +4,10 @@ const touristPlaceSchema = new mongoose.Schema({
     placeID: Number,
     placeName: String,
     description: String,
-    location: String,
+    location: {
+        lat: Number,
+        lng: Number
+    },
     images: [String],
     averageRating: Number,
     numberOfRatings: Number,
