@@ -1,11 +1,18 @@
 const TouristPlace = require('../models/touristplaceModel');
+const Province = require('../models/provinceModel');
 
 // استرجاع جميع الأماكن في محافظة معينة
 exports.getPlacesByProvince = async (req, res) => {
-    const { provinceID } = req.body;
+    const { provinceName } = req.body;
 
     try {
-        const places = await TouristPlace.find({ provinceID });
+        // البحث عن معرف المحافظة بناءً على اسمها
+        const province = await Province.findOne({ provinceName });
+        if (!province) {
+            return res.status(404).json({ message: 'Province not found' });
+        }
+
+        const places = await TouristPlace.find({ provinceID: province.provinceID });
         res.status(200).json(places);
     } catch (error) {
         console.error('Error while getting places', error);
