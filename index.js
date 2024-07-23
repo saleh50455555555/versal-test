@@ -3,6 +3,7 @@ const db = require('./src/db');
 const app = express();
 const authRoutes = require('./src/routes/authRoutes');
 const placeRoutes = require('./src/routes/placeRoutes');
+const { toPath } = require('lodash');
 
 app.use(express.json());
 const port = process.env.PORT || 5000;
@@ -17,7 +18,8 @@ const logger = (req, res, next) => {
 
 
 
-
+//ldf  
+//skldfjlaskdkjhkh
 app.use(logger);
 
 // إضافة مسارات المصادقة
@@ -28,7 +30,7 @@ app.use('/api/place', placeRoutes);
 
 
 
-
+console.log('hi');
 
 
 app.listen(port, () => {
