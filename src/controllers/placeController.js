@@ -1,4 +1,4 @@
-const TouristPlace = require('../models/TouristPlaceModel');
+const TouristPlace = require('../models/touristplaceModel');
 
 // استرجاع جميع الأماكن في محافظة معينة
 exports.getPlacesByProvince = async (req, res) => {
