@@ -30,7 +30,26 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 const baseUrl = process.env.BASE_URL || 'http://localhost:5000'; // تحديث مع الدومين الفعلي بعد النشر
 
 
+const newPlace = new TouristPlace({
+    placeID: 1,
+    placeName: "oootel",
+    description: "description for otel pla pla plaaaaaaa",
+    location: {
+        lat: 55.21,
+        lng: 55.22
+    },
+    images: [
+        `${baseUrl}/public/images/pool.jpg`,
+        `${baseUrl}/public/images/swim.jpg`,
+        `${baseUrl}/public/images/ootel.jpg`
+    ],
+    averageRating: 4.5,
+    numberOfRatings: 120,
+    provinceID: 1,
+    type: 1
+});
 
+newPlace.save().then(() => console.log('Place added'));
 
 
 
