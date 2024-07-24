@@ -29,24 +29,6 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 
 const baseUrl = process.env.BASE_URL || 'http://localhost:5000'; // تحديث مع الدومين الفعلي بعد النشر
 
-const newPlace = new TouristPlace({
-    placeID: 6,
-    placeName: "sasa",
-    description: "saaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    location: "تدمر",
-    images: [
-        `${baseUrl}/public/images/pool.jpg`,
-        `${baseUrl}/public/images/swim.jpg`
-    ],
-    averageRating: 4.5,
-    numberOfRatings: 120,
-    provinceID: 1,
-    type: 1
-});
-
-newPlace.save().then(() => console.log('Place added'));
-
-
 
 
 
