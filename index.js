@@ -27,11 +27,11 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 
 
 
-const baseUrl = process.env.BASE_URL || 'http://localhost:5000'; // تحديث مع الدومين الفعلي بعد النشر
+const baseUrl = process.env.BASE_URL; // تحديث مع الدومين الفعلي بعد النشر
 
 
 const newPlace = new TouristPlace({
-    placeID: 1,
+    placeID: 3,
     placeName: "oootel",
     description: "description for otel pla pla plaaaaaaa",
     location: {
