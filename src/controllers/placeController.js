@@ -49,7 +49,7 @@ exports.getRestaurantsByProvince = async (req, res) => {
         }
 
         // نوع 2 يمثل المطاعم
-        const restaurants = await TouristPlace.find({ provinceID: province.provinceID, type: 2 }).sort({ averageRating: 1 });
+        const restaurants = await TouristPlace.find({ provinceID: province.provinceID, type: 2 }).sort({ averageRating: -1 });
         res.status(200).json(restaurants);
     } catch (error) {
         console.error('Error while getting restaurants', error);
@@ -68,7 +68,7 @@ exports.getHotelsByProvince = async (req, res) => {
         }
 
         // نوع 1 يمثل الفنادق
-        const hotels = await TouristPlace.find({ provinceID: province.provinceID, type: 1 }).sort({ averageRating: 1 });
+        const hotels = await TouristPlace.find({ provinceID: province.provinceID, type: 1 }).sort({ averageRating: -1 });
         res.status(200).json(hotels);
     } catch (error) {
         console.error('Error while getting hotels', error);
@@ -87,7 +87,7 @@ exports.getHistoricalPlacesByProvince = async (req, res) => {
         }
 
         // نوع 3 يمثل الأماكن التاريخية
-        const historicalPlaces = await TouristPlace.find({ provinceID: province.provinceID, type: 3 }).sort({ averageRating: 1 });
+        const historicalPlaces = await TouristPlace.find({ provinceID: province.provinceID, type: 3 }).sort({ averageRating: -1 });
         res.status(200).json(historicalPlaces);
     } catch (error) {
         console.error('Error while getting historical places', error);
