@@ -4,9 +4,8 @@ const path = require('path'); // إضافة مكتبة path
 const app = express();
 const authRoutes = require('./src/routes/authRoutes');
 const placeRoutes = require('./src/routes/placeRoutes');
+const commentRoutes = require('./src/routes/commentRoutes');
 
-
-const TouristPlace = require('./src/models/touristplaceModel');
 
 
 app.use(express.json());
@@ -40,8 +39,12 @@ app.use('/api/auth', authRoutes);
 // إضافة مسارات الأماكن
 app.use('/api/place', placeRoutes);
 
-// تعريف المسار الأساسي للتطبيق
-//const baseUrl = process.env.BASE_URL || `http://localhost:${port}`; // تحديث مع الدومين الفعلي بعد النشر
+
+// إضافة مسارات التعليقات
+app.use('/api/comments', commentRoutes);
+
+
+
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
