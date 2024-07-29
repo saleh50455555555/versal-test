@@ -33,14 +33,24 @@ exports.addComment = async (req, res) => {
     }
 };
 
-
-// استرجاع جميع التعليقات لمكان سياحي معين
 exports.getCommentsByPlace = async (req, res) => {
     const { placeID } = req.body;
 
     try {
-        const comments = await Comment.find({ placeID }).populate('userID', 'username').sort({ timestamp: -1 });
-        res.status(200).json(comments);
+        // جلب التعليقات بدون استخدام populate
+        const comments = await Comment.find({ placeID }).sort({ timestamp: -1 });
+
+        // جلب أسماء المستخدمين بناءً على userID
+        const enrichedComments = await Promise.all(comments.map(async comment => {
+            // استخدم findOne للبحث عن المستخدم باستخدام userID
+            const user = await User.findOne({ userID: comment.userID }).select('username');
+            return {
+                ...comment._doc,
+                username: user ? user.username : 'Unknown'
+            };
+        }));
+
+        res.status(200).json(enrichedComments);
     } catch (error) {
         console.error('Error while getting comments', error);
         res.status(500).json({ message: 'Server error', error });
