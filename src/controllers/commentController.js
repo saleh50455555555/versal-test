@@ -56,3 +56,43 @@ exports.getCommentsByPlace = async (req, res) => {
         res.status(500).json({ message: 'Server error', error });
     }
 };
+
+
+// دالة لحذف تعليق
+exports.deleteComment = async (req, res) => {
+    const { commentID } = req.body;
+
+    try {
+        const comment = await Comment.findByIdAndDelete(commentID);
+
+        if (!comment) {
+            return res.status(404).json({ message: 'Comment not found' });
+        }
+
+        res.status(200).json({ message: 'Comment deleted successfully' });
+    } catch (error) {
+        console.error('Error while deleting comment', error);
+        res.status(500).json({ message: 'Server error', error });
+    }
+};
+
+// دالة لتعديل تعليق
+exports.updateComment = async (req, res) => {
+    const { commentID, newText } = req.body;
+
+    try {
+        const comment = await Comment.findById(commentID);
+
+        if (!comment) {
+            return res.status(404).json({ message: 'Comment not found' });
+        }
+
+        comment.commentText = newText;
+        await comment.save();
+
+        res.status(200).json({ message: 'Comment updated successfully', comment });
+    } catch (error) {
+        console.error('Error while updating comment', error);
+        res.status(500).json({ message: 'Server error', error });
+    }
+};
