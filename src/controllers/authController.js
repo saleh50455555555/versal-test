@@ -13,6 +13,11 @@ exports.register = async (req, res) => {
             console.log('User already exists');
             return res.status(400).json({ message: 'User already exists' });
         }
+        let userr = await User.findOne({ username });
+        if (userr) {
+            console.log('username is  reserved');
+            return res.status(400).json({ message: 'username is  reserved' });
+        }
 
         const hashedPassword = await bcrypt.hash(password, 10);
         user = new User({
