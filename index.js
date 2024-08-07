@@ -5,7 +5,7 @@ const app = express();
 const authRoutes = require('./src/routes/authRoutes');
 const placeRoutes = require('./src/routes/placeRoutes');
 const commentRoutes = require('./src/routes/commentRoutes');
-
+const TouristPlace = require('./src/models/touristplaceModel');
 
 
 app.use(express.json());
@@ -21,27 +21,32 @@ const logger = (req, res, next) => {
 
 app.use(logger);
 
-// إعداد تقديم الملفات الثابتة من مجلد public
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 
 
-const baseUrl = 'https://node-saleh.onrender.com'; // تحديث مع الدومين الفعلي بعد النشر
+
+const baseUrl = 'https://node-saleh.onrender.com';
 
 
-
-
-
-
-// إضافة مسارات المصادقة
 app.use('/api/auth', authRoutes);
 
-// إضافة مسارات الأماكن
+
 app.use('/api/place', placeRoutes);
 
 
-// إضافة مسارات التعليقات
+
 app.use('/api/comments', commentRoutes);
+
+
+
+
+
+
+
+
+
+
 
 
 
